@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heatmap</title>
+</head>
+
+<body>
+    <a href="OrderBook.html">OrderBook</a> |
+    <a href="Footprint.html">Footprint</a> |
+    <a href="MarketOrder.html">Market order</a> |
+    <a href="OpenCandle.html">OpenCandle</a> |
+
+    <hr>
+    <input id="connection-url" value="wss://localhost:8443" width="350" type="text"> <button
+        id="btn-connect">Connect</button>
+    <button id="btn-close">Close</button>
+    <br>
+    <br>
+    Symbol: <input type="text" value="BTCUSDT" id="txt-symbol">
+    <button id="btn-send">Send</button>
+    <pre id="data"></pre>
+    <script src="js/HeatmapScript.js"></script>
+</body>
+
+</html>

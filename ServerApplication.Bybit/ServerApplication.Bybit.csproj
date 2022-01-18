@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>dotnet-ServerApplication.Bybit-2AA757DE-DBED-442B-BF79-39802EC4CA8B</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+        <PackageReference Include="log4net" Version="2.0.12" />
+        <PackageReference Include="WatsonWebsocket" Version="2.3.2" />
+        <PackageReference Include="System.Runtime.Caching" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DatabaseRepository\DatabaseRepository.csproj" />
+      <ProjectReference Include="..\ExchangeServices\ExchangeServices.csproj" />
+      <ProjectReference Include="..\Redis\Redis.csproj" />
+      <ProjectReference Include="..\ZeroMQ\ZeroMQ.csproj" />
+      <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="log4net.config">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+</Project>

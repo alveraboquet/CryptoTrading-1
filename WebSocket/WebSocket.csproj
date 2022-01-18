@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-WebSocket-251A1B2B-7B45-4428-AFA6-E4CF408C0F9E</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.12" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseRepository\DatabaseRepository.csproj" />
+    <ProjectReference Include="..\Redis\Redis.csproj" />
+    <ProjectReference Include="..\UserModels\UserModels.csproj" />
+    <ProjectReference Include="..\UserRepository\UserRepository.csproj" />
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
+    <ProjectReference Include="..\ZeroMQ\ZeroMQ.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NetCoreServer">
+      <HintPath>..\NetCoreServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="server.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

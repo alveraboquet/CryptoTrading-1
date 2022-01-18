@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+<LangVersion>8.0</LangVersion>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-ServerApplication-5DFC070F-D7C5-4D5A-8A60-129B167F7186</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Caching\Redis\**" />
+    <Compile Remove="Logic\**" />
+    <Content Remove="Caching\Redis\**" />
+    <Content Remove="Logic\**" />
+    <EmbeddedResource Remove="Caching\Redis\**" />
+    <EmbeddedResource Remove="Logic\**" />
+    <None Remove="Caching\Redis\**" />
+    <None Remove="Logic\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Binance.Net" Version="6.13.3" />
+    <PackageReference Include="Bitfinex.Net" Version="3.4.7" />
+    <PackageReference Include="Bitmex.NET" Version="2.0.99" />
+    <PackageReference Include="Coinbase" Version="6.0.1" />
+    <PackageReference Include="Coinbase.Client.Websocket" Version="2.0.16" />
+    <PackageReference Include="Coinbase.Pro" Version="4.1.2" />
+    <PackageReference Include="log4net" Version="2.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging.EventSource" Version="3.1.14" />
+    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="3.1.14" />
+    <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
+    <PackageReference Include="System.Runtime.Caching" Version="5.0.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseRepository\DatabaseRepository.csproj" />
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\ExchangeModels\ExchangeModels.csproj" />
+    <ProjectReference Include="..\ExchangeServices\ExchangeServices.csproj" />
+    <ProjectReference Include="..\Redis\Redis.csproj" />
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
+    <ProjectReference Include="..\ZeroMQ\ZeroMQ.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FtxApi">
+      <HintPath>..\FtxApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WatsonWebsocket">
+      <HintPath>..\WatsonWebsocket.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

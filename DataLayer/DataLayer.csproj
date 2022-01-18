@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+<LangVersion>8.0</LangVersion>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.12.1" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.12.1" />
+  </ItemGroup>
+
+</Project>

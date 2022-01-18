@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ChainViewAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ChainViewAPI.ChartCachingManager.GetSortedCandles(System.String,System.String,System.String)">
+            <summary>
+            returns a CandleSortedSet if exist otherwise creates a new one and returns it.
+            </summary>
+        </member>
+        <member name="M:ChainViewAPI.ChartCachingManager.GetSortedFootprints(System.String,System.String,System.String)">
+            <summary>
+            returns a FootprintSortedSet if exist otherwise creates a new one and returns it.
+            </summary>
+        </member>
+        <member name="M:ChainViewAPI.ChartCachingManager.GetSortedHeatmap(System.String,System.String,System.String)">
+            <summary>
+            returns a FootprintSortedSet if exist otherwise creates a new one and returns it.
+            </summary>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.Login(ChainViewAPI.Models.ReqLogin)">
+            <response code="400">enter userName/password</response>
+            <response code="400">wrong password</response>
+            <response code="404">Doesn't exist username / email</response>
+            <response code="200">returns the account-id and account-token</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.Register(ChainViewAPI.Models.ReqRegister)">
+            <response code="400">enter userName/email/password</response>
+            <response code="400">userName/email exist</response>
+            <response code="200">returns the account-id and account-token</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.AutoPlanRenew(System.String)">
+            <param name="value" example="true" type="bolean"></param>
+            <response code="400">enter value</response>
+            <response code="400">value should be true or false</response>
+            <response code="200">successfully changed</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.RemoveSession(System.Nullable{System.Int64})">
+            <param name="id">the sessionId</param>
+            <response code="400">enter session id</response>
+            <response code="400">wrong session id</response>
+            <response code="200">successfully removed</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.ChangePassword(ChainViewAPI.Models.ReqChangePassword)">
+            <response code="400">enter password</response>
+            <response code="200">successfully changed</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.ChangeEmail(ChainViewAPI.Models.ReqChangeEmail)">
+            <response code="400">enter email</response>
+            <response code="400">email exist</response>
+            <response code="200">successfully changed</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.ChangeUserName(ChainViewAPI.Models.ReqChangeUserName)">
+            <response code="400">Enter userName/newUserName</response>
+            <response code="400">userName exist</response>
+            <response code="200">successfully changed</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.Ping">
+            <response code="401">Unauthorized</response>
+            <response code="202">Accepted</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.UserInfo">
+            <response code="404">wrong account-id (user not found)</response>
+            <response code="200">returns user info</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.AccountController.SessionsList">
+            <response code="404">wrong account-id (user not found)</response>
+            <response code="200">returns the user sessions list</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.ChartSettingsController.ModifyChartSettings">
+            <response code="200">Correct</response>
+            <response code="400">(failed to edit)</response>
+            <response code="400">the data in body is required</response>
+            <response code="400">body is too big</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.ChartSettingsController.GetChartSettings">
+            <response code="200">the settings</response>
+            <response code="204">its empty</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.DrawingsController.AddDraw(System.String,System.String,System.String,System.Int32)">
+            <response code="400">Wrong 'layer'</response>
+            <response code="200">the id of drawing</response>
+            <response code="400">the data in body is required</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.DrawingsController.DeleteDraw(System.Int64)">
+            <response code="400">Wrong draw | there is no draw with this id or its not for this user</response>
+            <response code="200">Correct</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.DrawingsController.ModifyDraw(System.Int64)">
+            <response code="400">Wrong draw | there is no draw with this id or its not for this user</response>
+            <response code="200">Correct</response>
+            <response code="400">the data in body is required</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.DrawingsController.GetAllDrawings(System.String,System.String,System.String)">
+            <response code="400">Wrong 'layer'</response>
+            <response code="200">Correct</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.WatchListController.Add(System.String,System.String)">
+            <response code="200"></response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.WatchListController.Remove(System.String,System.String)">
+            <response code="200"></response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.v1.WatchListController.Get">
+            <response code="200"></response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.ChartsInfoController.Candle(System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int32})">
+            <param name="exchange" example="binance"></param>
+            <param name="symbol" example="BTCUSDT">symbol name</param>
+            <param name="timeframe" example="1m">the timeframe</param>
+            <param name="start">start time unixtimestamp foramt milliseconds</param>
+            <param name="end">end time unixtimestamp foramt milliseconds</param>
+            <param name="last">number of candles you want</param>
+            <response code="400">exchange/symbol/timeframe is invalid</response>
+            <response code="400">start is bigger than end.</response>
+            <response code="408">requested for data after ServerApplication stoped. returns the server stop time (int64)</response>
+            <response code="200">returns the candles</response>
+            <response code="429">Too many request to binance.com</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.ChartsInfoController.Footprint(System.String,System.String,System.String,System.Int64,System.Nullable{System.Int64})">
+            <param name="exchange" example="binance"></param>
+            <param name="symbol" example="BTCUSDT">symbol name</param>
+            <param name="timeframe" example="1m">the timeframe string format</param>
+            <param name="start">start time unixtimestamp foramt milliseconds</param>
+            <param name="end">end time unixtimestamp foramt milliseconds</param>
+            <response code="400">exchange/symbol/timeframe is invalid</response>
+            <response code="400">start is bigger than end.</response>
+            <response code="400">requested for data after ServerApplication stoped. returns the server stop time (int64)</response>
+            <response code="200">returns the footprints</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.ChartsInfoController.Heatmap(System.String,System.String,System.String,DataLayer.Mode,System.Int64,System.Nullable{System.Int64})">
+            <param name="exchange" example="binance"></param>
+            <param name="symbol" example="BTCUSDT">symbol name</param>
+            <param name="timeframe" example="1m">the timeframe string format</param>
+            <param name="start">start time unixtimestamp foramt milliseconds</param>
+            <param name="end">end time unixtimestamp foramt milliseconds</param>
+            <param name="mode" example="0">mode of heatmap</param>
+            <response code="400">exchange/symbol/timeframe is invalid</response>
+            <response code="400">start is bigger than end.</response>
+            <response code="400">requested for data after ServerApplication stoped. returns the server stop time (int64)</response>
+            <response code="200">returns heatmaps</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.LayersController.AddLayer(System.String,System.String,System.String)">
+            <response code="403">max layers 'returns max layers for this user'</response>
+            <response code="200">the id and name of layer</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.LayersController.SetLayerAsDefault(System.String,System.String,System.Int64)">
+            <response code="400">Can not set as default</response>
+            <response code="200">the list of layers</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.LayersController.DeleteLayer(System.String,System.String,System.Int64)">
+            <response code="400">wrong layer id.</response>
+            <response code="200">ther list of layers</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.SymbolsController.SymbolInfo(System.String,System.String)">
+            <param name="exchange" example="binance"></param>
+            <param name="symbol" example="BTCUSDT">symbol name</param>
+            <response code="404">no symbol found</response>
+            <response code="200">returns the pair info</response>
+            <response code="429">Too many request to binance.com</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.SymbolsController.ListOfSymbols(System.String)">
+            <param name="exchange" example="binance"></param>
+            <response code="200">returns the list of pair infos</response>
+        </member>
+        <member name="M:ChainViewAPI.Controllers.SymbolsController.SymbolSearch(System.String,System.String)">
+            <param name="exchange" example="binance"></param>
+            <param name="text" example="BTC">text to search</param>
+            <response code="404">no symbol found</response>
+            <response code="400">text is required</response>
+            <response code="200">returns the list of pairs</response>
+        </member>
+        <member name="M:ChainViewAPI.Extension.SymbolInfoResponseMessage(DataLayer.PairInfo,ChainViewAPI.Services.SymbolsStartAndEndTimeProvider,DatabaseRepository.IPairInfoRepository)">
+            <exception cref="T:ExchangeServices.BinanceTooManyRequestException"/>
+        </member>
+        <member name="M:ChainViewAPI.Services.SymbolsStartAndEndTimeProvider.GetStartTimeMax(DataLayer.PairInfo,System.String)">
+            <summary>
+            checks StartTimeMax of this timeframeOption, if it was null does an Api call to binance and gets the value.
+            </summary>
+            <returns>true if StartTimeMax wasn't initialized, false otherwise.</returns>
+            <exception cref="T:ExchangeServices.BinanceTooManyRequestException"/>
+        </member>
+        <member name="M:ChainViewAPI.Services.SymbolsStartAndEndTimeProvider.TryGetEndTimeMax(DataLayer.PairInfo,System.String)">
+            <summary>
+            checks EndTimeMax of this timeframeOption, if it was null does an Api call to binance and gets the value.
+            </summary>
+            <returns>true if EndTimeMax wasn't initialized, false otherwise.</returns>
+            <exception cref="T:ExchangeServices.BinanceTooManyRequestException"/>
+        </member>
+    </members>
+</doc>
